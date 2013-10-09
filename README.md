@@ -51,5 +51,5 @@ Contributions are welcome. I only spent a few hours on this the night before my 
 
 Ideas
 -----
-- [ ] Add rating restore functionality. If you want to transfer ratings.
-- [ ] Get off perl? I like python...or maybe ruby would be a good choice...
+* Add rating restore functionality. If you want to transfer ratings.
+* Get off perl? I like python...or maybe ruby would be a good choice...
