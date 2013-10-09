@@ -9,6 +9,15 @@ Requirements
 ------------
 perl >= 5.10 (may work on previous versions)
 
+perl modules:
+* CGI
+* strict
+* WWW::Mechanize
+* HTTP::Cookies
+* Crypt::SSLeay
+
+And I have only used this on my OSX system, but I suspect it works on Linux as well.
+
 Use
 ---
 
