@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Netflix-ratings-downloader : Saves your netflix ratings to CSV file" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Netflix-ratings-downloader</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/beeftornado/netflix-ratings-downloader">View on GitHub</a>
+
+          <h1 id="project_title">Netflix-ratings-downloader</h1>
+          <h2 id="project_tagline">Saves your netflix ratings to CSV file</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/beeftornado/netflix-ratings-downloader/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/beeftornado/netflix-ratings-downloader/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Small script that saves your Netflix® ratings to a CSV file. I couldn't find something that reliably worked for me when I canceled my account so I wrote this.</p>
+
+<p>It is likely to break because of the methodology it uses. Netflix has an API for getting your ratings, but it will only serve back ratings for movies you rented from them. If you're like me, who went through and rated all kinds of movies you saw before Netflix® so you could get better recommendations, then this may help you.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>perl &gt;= 5.10 (may work on previous versions)</p>
+
+<p>perl modules:</p>
+
+<ul>
+<li>CGI</li>
+<li>strict</li>
+<li>WWW::Mechanize</li>
+<li>HTTP::Cookies</li>
+<li>Crypt::SSLeay</li>
+</ul><p>And I have only used this on my OSX system, but I suspect it works on Linux as well.</p>
+
+<h2>
+<a name="use" class="anchor" href="#use"><span class="octicon octicon-link"></span></a>Use</h2>
+
+<pre><code>perl download_rating_data.pl
+</code></pre>
+
+<p>And then you should see some output indicating that the ratings are being processed. Afterwards, you should see a csv file named <code>netflix-ratings-full-&lt;your_name&gt;.csv</code></p>
+
+<p>If you open it either in a regular text editor, or Excel, you will see something similar to this</p>
+
+<pre><code>"ID","Title","Year","My Rating","Avg Rating","URL"
+"70221573","Doctor Who: The End of Time","2009","5","4.6","http://movies.netflix.com/WiMovie/Doctor_Who_The_End_of_Time/70221573?trkid=496715"
+"1057618","Total Recall","1990","5","3.6","http://movies.netflix.com/WiMovie/Total_Recall/1057618?trkid=496715"
+"70136138","The X-Files","2001","5","4","http://movies.netflix.com/WiMovie/The_X-Files/70136138?trkid=496715"
+"70136139","Hannah Montana","2010","5","3.3","http://movies.netflix.com/WiMovie/Hannah_Montana/70136139?trkid=496715"
+"60027493","Cube 2: Hypercube","2002","5","3.1","http://movies.netflix.com/WiMovie/Cube_2_Hypercube/60027493?trkid=496715"
+"70136124","30 Rock","2012","5","3.9","http://movies.netflix.com/WiMovie/30_Rock/70136124?trkid=496715"
+"17672318","12 Monkeys","1995","5","3.7","http://movies.netflix.com/WiMovie/12_Monkeys/17672318?trkid=496715"
+</code></pre>
+
+<p>As you can see, it will save Netflix®'s movie ID, title, release year, your rating, average Netflix® rating, and the Netflix® movie url.</p>
+
+<h2>
+<a name="how-it-works" class="anchor" href="#how-it-works"><span class="octicon octicon-link"></span></a>How it works</h2>
+
+<p>It works by logging in to your Netflix® account, and using a technique known as "web-scraping." This is where the HTML of your movie ratings is analyzed, and the ratings are extracted from it. This is the same reason it is likely to break. Programs that use "web-scraping" are heavily dependent on the website's HTML, which may change often.</p>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Contributions are welcome. I only spent a few hours on this the night before my account closed so it isn't pretty or very user friendly. I hope to make some minor adjustments because I'm open sourcing it, but nothing major. If it stops working due to a site change, I'd be happy to update this to work, but I no longer have an active account. If someone else has the expertise then by all means, go ahead and patch it up and send it to me.</p>
+
+<h2>
+<a name="ideas" class="anchor" href="#ideas"><span class="octicon octicon-link"></span></a>Ideas</h2>
+
+<ul>
+<li>Add rating restore functionality. If you want to transfer ratings.</li>
+<li>Get off perl? I like python...or maybe ruby would be a good choice...</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Netflix-ratings-downloader maintained by <a href="https://github.com/beeftornado">beeftornado</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
